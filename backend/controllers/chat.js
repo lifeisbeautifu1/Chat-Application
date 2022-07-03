@@ -67,7 +67,7 @@ export const fetchChats = async (req, res) => {
         .sort({updatedAt: -1});
         const result = await User.populate(chat, {
             path: 'latestMessage.sender',
-            select: 'name pic email',
+            select: 'name image email',
         })
         res.status(StatusCodes.OK).json(result);
 
